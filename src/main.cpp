@@ -13,6 +13,6 @@ void setup()
 void loop()
 {
   M5.Lcd.setCursor(3,30);
-  M5.Lcd.println("Esto es una prueba");
+  M5.Lcd.println("Esto es una pruebaaaa");
   delay(3000);
 }
