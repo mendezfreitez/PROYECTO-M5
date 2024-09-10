@@ -10,20 +10,23 @@
 #include "submenu.h"
 #include "const.h"
 
+using namespace std;
+
 TaskHandle_t fnHandle;
 int capa_actual;
 unsigned long prev_milis = 0;
-std::vector<std::string> anioMesDia;
-std::vector<std::string> horaMinSegs;
+vector<string> anioMesDia;
+vector<string> horaMinSegs;
 m5::rtc_date_t fecha_;
 m5::rtc_time_t hora_;
 
 
 
-std::vector<std::string> returnArrInfo(std::string infoDesglose, char charReff) {
+vector<string> returnArrInfo(string infoDesglose, char charReff) {
   int longInfo = infoDesglose.length();
-  std::string acc = "";
-  std::vector<std::string> arrInfo;
+  string acc = "";
+  // std::vector<std::string> arrInfo;
+  vector<string> arrInfo;
 
   for (int i = 0; i <= longInfo; i++) {
     if (infoDesglose[i] == charReff || i == longInfo) {
@@ -39,20 +42,20 @@ std::vector<std::string> returnArrInfo(std::string infoDesglose, char charReff) 
 
 void nuevoFechaHora(JsonDocument doc) {
   const char* fechaHora = doc["datetime"];
-  std::string str = std::string(fechaHora);
+  string str = string(fechaHora);
 
   int pos_T = str.find('T');
-  std::string fecha = str.substr(0, pos_T);
-  std::string hora = str.substr(pos_T + 1, 8);
+  string fecha = str.substr(0, pos_T);
+  string hora = str.substr(pos_T + 1, 8);
 
   anioMesDia = returnArrInfo(fecha, '-');
   horaMinSegs = returnArrInfo(hora, ':');
-  fecha_.year = std::stoi(anioMesDia[0]);
-  fecha_.month = std::stoi(anioMesDia[1]);
-  fecha_.date = std::stoi(anioMesDia[2]);
-  hora_.hours = std::stoi(horaMinSegs[0]);
-  hora_.minutes = std::stoi(horaMinSegs[1]);
-  hora_.seconds = std::stoi(horaMinSegs[2]);
+  fecha_.year = stoi(anioMesDia[0]);
+  fecha_.month = stoi(anioMesDia[1]);
+  fecha_.date = stoi(anioMesDia[2]);
+  hora_.hours = stoi(horaMinSegs[0]);
+  hora_.minutes = stoi(horaMinSegs[1]);
+  hora_.seconds = stoi(horaMinSegs[2]);
 
   M5.Rtc.setDate(&fecha_);
   M5.Rtc.setTime(&hora_);
