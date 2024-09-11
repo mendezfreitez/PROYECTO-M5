@@ -20,19 +20,22 @@ vector<string> horaMinSegs;
 m5::rtc_date_t fecha_;
 m5::rtc_time_t hora_;
 
-
-
-vector<string> returnArrInfo(string infoDesglose, char charReff) {
+vector<string> returnArrInfo(string infoDesglose, char charReff)
+{
   int longInfo = infoDesglose.length();
   string acc = "";
   // std::vector<std::string> arrInfo;
   vector<string> arrInfo;
 
-  for (int i = 0; i <= longInfo; i++) {
-    if (infoDesglose[i] == charReff || i == longInfo) {
+  for (int i = 0; i <= longInfo; i++)
+  {
+    if (infoDesglose[i] == charReff || i == longInfo)
+    {
       arrInfo.push_back(acc);
       acc = "";
-    } else {
+    }
+    else
+    {
       acc += infoDesglose[i];
     }
   }
@@ -40,8 +43,9 @@ vector<string> returnArrInfo(string infoDesglose, char charReff) {
   return arrInfo;
 }
 
-void nuevoFechaHora(JsonDocument doc) {
-  const char* fechaHora = doc["datetime"];
+void nuevoFechaHora(JsonDocument doc)
+{
+  const char *fechaHora = doc["datetime"];
   string str = string(fechaHora);
 
   int pos_T = str.find('T');
@@ -61,20 +65,26 @@ void nuevoFechaHora(JsonDocument doc) {
   M5.Rtc.setTime(&hora_);
 }
 
-void setFechaHora(void* parameter) {
-  while (true) {
-    if (digitalRead(BUTON_PIN_A) == 0) {
+void setFechaHora(void *parameter)
+{
+  while (true)
+  {
+    if (digitalRead(BUTON_PIN_A) == 0)
+    {
       int segundos = 0;
       int mili_segundos = 0;
-      while (digitalRead(BUTON_PIN_A) == 0) {
+      while (digitalRead(BUTON_PIN_A) == 0)
+      {
         mili_segundos++;
         delay(1);
-        if (mili_segundos >= 1000) {
+        if (mili_segundos >= 1000)
+        {
           mili_segundos = 0;
           segundos++;
         }
 
-        if (segundos >= 1) {
+        if (segundos >= 1)
+        {
           wifiConn("Regina 2.4G", "lanamaria");
 
           HTTPClient http;
@@ -82,13 +92,16 @@ void setFechaHora(void* parameter) {
           http.begin("https://worldtimeapi.org/api/timezone/America/Santiago");
           int rCode = http.GET();
 
-          if (rCode > 0) {
+          if (rCode > 0)
+          {
             String resp = http.getString();
 
             JsonDocument doc;
             deserializeJson(doc, resp);
             nuevoFechaHora(doc);
-          } else {
+          }
+          else
+          {
             alertaBorde(RED);
           }
         }
@@ -97,15 +110,16 @@ void setFechaHora(void* parameter) {
   }
 }
 
-void MODULO_RELOJ() {
+void MODULO_RELOJ()
+{
   xTaskCreatePinnedToCore(
-    setFechaHora,    // Función que se ejecutará en el hilo
-    "setFechaHora",  // Nombre de la tarea (para depuración)
-    10000,           // Tamaño de la pila para la tarea
-    NULL,            // Parámetro pasado a la tarea (puedes usar NULL)
-    1,               // Prioridad de la tarea (mayor número, mayor prioridad)
-    &fnHandle,       // Puntero a la tarea manejada
-    1                // Núcleo donde se ejecutará la tarea (0 o 1 en ESP32)
+      setFechaHora,   // Función que se ejecutará en el hilo
+      "setFechaHora", // Nombre de la tarea (para depuración)
+      10000,          // Tamaño de la pila para la tarea
+      NULL,           // Parámetro pasado a la tarea (puedes usar NULL)
+      1,              // Prioridad de la tarea (mayor número, mayor prioridad)
+      &fnHandle,      // Puntero a la tarea manejada
+      1               // Núcleo donde se ejecutará la tarea (0 o 1 en ESP32)
   );
 
   capa_actual = capa;
@@ -113,7 +127,8 @@ void MODULO_RELOJ() {
   M5.Lcd.setTextSize(2);
   M5.Lcd.setTextColor(DARKGREY, BLACK);
 
-  while (capa_actual == capa) {
+  while (capa_actual == capa)
+  {
     m5::rtc_date_t fecha = M5.Rtc.getDate();
     m5::rtc_time_t hora = M5.Rtc.getTime();
 
@@ -122,7 +137,11 @@ void MODULO_RELOJ() {
     M5.Lcd.setCursor(54, 66);
     M5.Lcd.printf("%02d:%02d:%02d", fecha.date, fecha.month, fecha.year);
 
-    mirarBtnIrAtras();
+    bool resp = mirarBtnIrAtras();
+    if (resp)
+    {
+      vTaskDelete(&fnHandle);
+    }
   }
   M5.Lcd.clearDisplay();
   M5.Lcd.setTextSize(1.1);

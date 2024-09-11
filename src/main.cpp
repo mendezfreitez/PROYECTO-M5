@@ -4,7 +4,7 @@
 
 const int BUTON_PIN_C = 35;
 const int BUTON_PIN_A = 37;
-const char *MENU_PRINCIPAL_ITEMS[] = { "RELOJ", "CRONOMETRO", "SENSORES" };
+const char *MENU_PRINCIPAL_ITEMS[] = {"RELOJ", "CRONOMETRO", "SENSORES"};
 const int menu_length = sizeof(MENU_PRINCIPAL_ITEMS) / sizeof(MENU_PRINCIPAL_ITEMS[0]);
 int idx_capa0 = 0;
 int idx_capa1 = 0;
@@ -14,7 +14,8 @@ int capa = 0;
 // m5::rtc_date_t fecha_str;
 // m5::rtc_time_t tiempo_str;
 
-void setup() {
+void setup()
+{
   M5.begin();
   // fecha_str.date = 1;
   // fecha_str.month = 1;
@@ -25,7 +26,7 @@ void setup() {
   // tiempo_str.minutes = 00;
   // tiempo_str.seconds = 00;
   // M5.Rtc.setTime(&tiempo_str);
-  
+
   M5.Lcd.setTextSize(1.1);
   M5.Lcd.setRotation(1);
   M5.Lcd.fillScreen(BLACK);
@@ -35,7 +36,8 @@ void setup() {
   pinMode(BUTON_PIN_A, INPUT_PULLUP);
 }
 
-void selectOption() {
+void selectOption()
+{
   M5.Lcd.fillScreen(BLACK);
   M5.Lcd.setTextColor(WHITE, BLACK);
   M5.Lcd.setCursor(1, 1);
@@ -44,16 +46,23 @@ void selectOption() {
   displayMenu(MENU_PRINCIPAL_ITEMS, idx_capa0, menu_length);
 }
 
-void loop() {
+void loop()
+{
   M5.update();
-  if (M5.BtnB.wasPressed()) {
-    if (capa == 0) {
+  if (M5.BtnB.wasPressed())
+  {
+    if (capa == 0)
+    {
       idx_capa0 = (idx_capa0 + 1) % menu_length;
       displayMenu(MENU_PRINCIPAL_ITEMS, idx_capa0, menu_length);
     }
   }
-  if (M5.BtnA.wasPressed()) {
-    if (capa < 2) { capa++; }
+  if (M5.BtnA.wasPressed())
+  {
+    if (capa < 2)
+    {
+      capa++;
+    }
     selectOption();
   }
 }

@@ -5,7 +5,8 @@
 
 int porc_bateria;
 
-void bateria() {
+void bateria()
+{
   porc_bateria = M5.Power.getBatteryLevel();
   M5.Lcd.setTextColor(ORANGE, BLACK);
   M5.Lcd.setCursor(M5.Lcd.width() - 19, M5.Lcd.height() - 10);
@@ -13,50 +14,65 @@ void bateria() {
   M5.Lcd.setTextColor(WHITE, BLACK);
 }
 
-void wifiConn(const char* uuid, const char* pass) {
+void wifiConn(const char *uuid, const char *pass)
+{
   M5.Lcd.drawRect(0, 0, 240, 135, GREEN);
   M5.Lcd.drawRect(1, 1, 239, 134, GREEN);
   delay(700);
   WiFi.begin(uuid, pass);
-  while (WiFi.status() != WL_CONNECTED) {
+  while (WiFi.status() != WL_CONNECTED)
+  {
   }
   M5.Lcd.drawRect(0, 0, 240, 135, BLACK);
   M5.Lcd.drawRect(1, 1, 239, 134, BLACK);
 }
 
-void alertaBorde(int color) {
-  for (int i = 0; i <= 3; i++) {
+void alertaBorde(int color)
+{
+  for (int i = 0; i <= 3; i++)
+  {
     M5.Lcd.drawRect(i, i, 239 - i, 134 - i, color);
   }
   delay(1000);
-  for (int i = 0; i <= 3; i++) {
+  for (int i = 0; i <= 3; i++)
+  {
     M5.Lcd.drawRect(i, i, 239 - i, 134 - i, BLACK);
   }
 }
 
-void irAtras() {
-  if (capa == 2) {
+void irAtras()
+{
+  if (capa == 2)
+  {
     idx_capa2 = 0;
   }
-  if (capa == 1) {
+  if (capa == 1)
+  {
     idx_capa1 = 0;
   }
-  if (capa > 0) {
+  if (capa > 0)
+  {
     capa--;
   }
 }
 
-void mirarBtnIrAtras() {
-  if (digitalRead(BUTON_PIN_C) == 0) {
-    while (digitalRead(BUTON_PIN_C) == 0) {
+bool mirarBtnIrAtras()
+{
+  if (digitalRead(BUTON_PIN_C) == 0)
+  {
+    while (digitalRead(BUTON_PIN_C) == 0)
+    {
     }
     irAtras();
+    return true;
   }
+  return false;
 }
 
-
-void detener() {
-  if (M5.BtnB.wasPressed()) {
+void detener()
+{
+  if (M5.BtnB.wasPressed())
+  {
     iniciar = 0;
   }
 }

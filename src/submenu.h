@@ -3,7 +3,7 @@ void displayMenu(const char* const* arrItems, int index_actual, int length);
 void displaySubMenu(int indx);
 void funcionCronometro(void *parameter);
 void irAtras();
-void mirarBtnIrAtras();
+bool mirarBtnIrAtras();
 void detener();
 void MODULO_CRONOMETRO();
 void MODULO_SENSORES();
