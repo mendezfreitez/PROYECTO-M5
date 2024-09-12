@@ -26,7 +26,7 @@ void SENSOR_NIVEL() {
     M5.Imu.getAccelData(&gx, &gy, &gz);
     int_gx = gx * 60;
     int_gy = gy * 112;
-    delay(4);
+    delayMicroseconds(10);
 
     M5.Lcd.setCursor(0, 0);
     gyroXSamples[sampleIndex] = int_gx;
