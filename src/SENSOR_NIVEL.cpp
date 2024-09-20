@@ -12,7 +12,6 @@ float gyroZSamples[numSamples];
 int sampleIndex = 0;
 
 void SENSOR_NIVEL() {
-  capa++;
   M5.Lcd.clearDisplay();
   M5.Lcd.setColor(BLACK);
 
@@ -22,7 +21,7 @@ void SENSOR_NIVEL() {
     gyroZSamples[i] = 0;
   }
 
-  while (capa == 2) {
+  while (!btnAtras()) {
     M5.Imu.getAccelData(&gx, &gy, &gz);
     int_gx = gx * 60;
     int_gy = gy * 112;
@@ -52,8 +51,6 @@ void SENSOR_NIVEL() {
     for (int i = 0; i < 20; i++) {
       M5.Lcd.drawCircle(avgGyroY + 120, avgGyroX + 67, i + 5, BLACK);
     }
-
-    mirarBtnIrAtras();
   }
   M5.Lcd.setRotation(1);
   MODULO_SENSORES();

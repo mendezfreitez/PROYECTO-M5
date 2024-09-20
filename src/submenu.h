@@ -12,3 +12,5 @@ void SENSOR_NIVEL();
 void bateria();
 void wifiConn(const char* uuid, const char* pass);
 void alertaBorde(int color);
+void bluetooth();
+bool btnAtras();
