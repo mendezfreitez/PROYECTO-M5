@@ -27,14 +27,20 @@ void wifiConn(const char *uuid, const char *pass)
   M5.Lcd.drawRect(1, 1, 239, 134, BLACK);
 }
 
+void limpiarPantalla(int x, int y)
+{
+  M5.Lcd.clear();
+  M5.Lcd.setCursor(x, y);
+}
+
 void alertaBorde(int color)
 {
-  for (int i = 0; i <= 3; i++)
+  for (int i = 0; i <= 6; i++)
   {
     M5.Lcd.drawRect(i, i, 239 - i, 134 - i, color);
   }
   delay(1000);
-  for (int i = 0; i <= 3; i++)
+  for (int i = 0; i <= 6; i++)
   {
     M5.Lcd.drawRect(i, i, 239 - i, 134 - i, BLACK);
   }

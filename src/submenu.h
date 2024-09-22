@@ -1,4 +1,3 @@
-#include <string>
 void displayMenu(const char* const* arrItems, int index_actual, int length);
 void displaySubMenu(int indx);
 void funcionCronometro(void *parameter);
@@ -14,3 +13,4 @@ void wifiConn(const char* uuid, const char* pass);
 void alertaBorde(int color);
 void bluetooth();
 bool btnAtras();
+void limpiarPantalla(int x, int y);
