@@ -7,6 +7,7 @@ BluetoothSerial bt;
 
 void verConexion()
 {
+   capa = 3;
    if (bt.hasClient())
    {
       limpiarPantalla(48, 60);
@@ -20,7 +21,7 @@ void verConexion()
       M5.Power.setLed(0);
       delay(350);
       limpiarPantalla(0, 0);
-      while (!btnAtras())
+      while (!mirarBtnIrAtras())
       {
          if (bt.available())
          {
@@ -33,12 +34,13 @@ void verConexion()
       limpiarPantalla(40, 60);
       M5.Lcd.print("Dispositivo desconectado!!!");
       delay(2000);
-      bluetooth();
    }
+   capa = 2;
 }
 
 void bluetooth()
 {
+   capa = 2;
    bt.begin("M5StickCPlus2");
    M5.Lcd.clear();
    M5.Lcd.setCursor(54, 60);
@@ -47,5 +49,6 @@ void bluetooth()
    {
       verConexion();
    }
+   capa = 1;
    MODULO_SENSORES();
 }

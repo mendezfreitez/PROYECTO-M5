@@ -53,8 +53,8 @@ void loop()
   {
     // if (capa == 0)
     // {
-      idx_capa0 = (idx_capa0 + 1) % menu_length;
-      displayMenu(MENU_PRINCIPAL_ITEMS, idx_capa0, menu_length);
+    idx_capa0 = (idx_capa0 + 1) % menu_length;
+    displayMenu(MENU_PRINCIPAL_ITEMS, idx_capa0, menu_length);
     // }
   }
   if (M5.BtnA.wasPressed())
