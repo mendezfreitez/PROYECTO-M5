@@ -1,4 +1,4 @@
-void displayMenu(const char* const* arrItems, int index_actual, int length);
+void displayMenu(itemMenu arrItems[], int index_actual, int length);
 void displaySubMenu(int indx);
 void funcionCronometro(void *parameter);
 void irAtras();

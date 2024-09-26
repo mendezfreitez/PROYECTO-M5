@@ -4,7 +4,7 @@
 
 int cursor_Y = 0;
 
-void displayMenu(const char* const* arrItems, int index_actual, int length) {
+void displayMenu(itemMenu arrItems[], int index_actual, int length) {
   M5.Lcd.setTextSize(1.1);
   for (int i = 0; i < length; i++) {
     cursor_Y = 1 + 11 * i;
@@ -15,7 +15,7 @@ void displayMenu(const char* const* arrItems, int index_actual, int length) {
       M5.Lcd.setTextColor(WHITE, BLACK);
     }
     M5.Lcd.setCursor(1, cursor_Y);
-    M5.Lcd.print(arrItems[i]);
+    M5.Lcd.print(arrItems[i].nombre);
   }
   bateria();
 }

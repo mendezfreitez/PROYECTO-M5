@@ -13,5 +13,22 @@ extern const int BUTON_PIN_C;
 extern const int BUTON_PIN_A;
 extern int iniciar;
 extern int porc_bateria;
+extern int modulo;
 
+struct itemMenu{
+    char nombre[20];
+    int modulo;
+};
+
+#endif
+
+#ifndef CONST_MODULO
+#define CONST_MODULO
+
+extern const int SESOR_NIVEL = 1;
+extern const int RELOJ = 2;
+extern const int BLUETOOTH = 3;
+extern const int CRONOMETRO = 4;
+extern const int MENU_SENSORES = 5;
+extern const int MENU_INICIAL = 0;
 #endif
