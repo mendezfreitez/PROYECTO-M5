@@ -137,7 +137,7 @@ void MODULO_RELOJ()
     M5.Lcd.setCursor(54, 66);
     M5.Lcd.printf("%02d:%02d:%02d", fecha.date, fecha.month, fecha.year);
 
-    bool resp = mirarBtnIrAtras();
+    bool resp = mirarBtnIrAtras(MENU_INICIAL);
     if (resp)
     {
       vTaskDelete(&fnHandle);

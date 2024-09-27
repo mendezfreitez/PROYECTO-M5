@@ -76,11 +76,12 @@ void funcionCronometro()
 
 void MODULO_CRONOMETRO()
 {
+  M5.Lcd.clearDisplay();
   attachInterrupt(digitalPinToInterrupt(BUTON_PIN_A), isr, FALLING);
   opt[0].nombre = "INICIAR";
   displayMenu(opt, idx_capa1, 2);
   printCronometro();
-  while (capa == 1)
+  while (modulo == CRONOMETRO)
   {
     M5.update();
     if (M5.BtnA.wasPressed())
@@ -89,7 +90,7 @@ void MODULO_CRONOMETRO()
       M5.Lcd.setTextColor(WHITE, BLACK);
       funcionCronometro();
     }
-    if (M5.BtnB.wasPressed() && strcmp(opt[0].nombre.c_str(),"PAUSAR") == 0)
+    if (M5.BtnB.wasPressed() && strcmp(opt[0].nombre.c_str(), "PAUSAR") == 0)
     {
       idx_capa1 = (idx_capa1 + 1) % 2;
       displayMenu(MENU_INICIAR_ITEMS, idx_capa1, 2);
@@ -97,7 +98,7 @@ void MODULO_CRONOMETRO()
     if (digitalRead(BUTON_PIN_C) == 0 && iniciar == 0)
     {
       reiniciarCronometro();
-      irAtras();
+      mirarBtnIrAtras(MENU_INICIAL);
     }
   }
 }

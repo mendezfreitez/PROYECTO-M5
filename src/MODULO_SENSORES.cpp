@@ -1,7 +1,7 @@
-#include "const.h"
 #include <M5StickCPlus2.h>
 #include <math.h>
 #include "submenu.h"
+#include "const.h"
 
 itemMenu MENU_SENSORES_ITEMS[] = {
     {"SENSOR DE NIVEL MPU6886", NIVEL_SENSOR},
@@ -10,57 +10,37 @@ itemMenu MENU_SENSORES_ITEMS[] = {
 
 void microfono()
 {
-  capa++;
   M5.Lcd.clearDisplay();
-  // M5.Lcd.setTextSize(2);
 
   M5.Lcd.setCursor(10, 60);
   M5.Lcd.print("Aca se enciende el microfono...");
   M5.Mic.begin();
-  while (capa == 2)
+  while (modulo == MICROFONO)
   {
-    mirarBtnIrAtras();
+    mirarBtnIrAtras(MENU_SENSORES);
   }
   M5.Mic.end();
   M5.Lcd.setTextSize(1.1);
-  MODULO_SENSORES();
-}
-
-void displaySensor(int idx)
-{
-  switch (idx)
-  {
-  case 0:
-    SENSOR_NIVEL();
-    break;
-  case 1:
-    microfono();
-    break;
-  case 2:
-    bluetooth();
-    break;
-  }
 }
 
 void MODULO_SENSORES()
 {
   M5.Lcd.clearDisplay();
-  displayMenu(MENU_SENSORES_ITEMS, idx_capa1, 4);
-  while (capa == 1)
+  displayMenu(MENU_SENSORES_ITEMS, idx_capa1, 3);
+  while (modulo == MENU_SENSORES)
   {
     M5.update();
     if (M5.BtnA.wasPressed())
     {
-      displaySensor(idx_capa1);
+      modulo = MENU_SENSORES_ITEMS[idx_capa1].modulo;
     }
     if (M5.BtnB.wasPressed())
     {
-      idx_capa1 = (idx_capa1 + 1) % 4;
-      displayMenu(MENU_SENSORES_ITEMS, idx_capa1, 4);
+      idx_capa1 = (idx_capa1 + 1) % 3;
+      displayMenu(MENU_SENSORES_ITEMS, idx_capa1, 3);
     }
-    mirarBtnIrAtras();
+    mirarBtnIrAtras(MENU_INICIAL);
   }
-  M5.Lcd.clearDisplay();
 }
 
 bool btnAtras()

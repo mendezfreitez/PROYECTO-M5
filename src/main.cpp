@@ -1,12 +1,10 @@
 #include <M5StickCPlus2.h>
+#include "gestorMenus.h"
 #include "submenu.h"
 #include "const.h"
-#include "gestorMenus.h"
 
 const int BUTON_PIN_C = 35;
 const int BUTON_PIN_A = 37;
-const char *MENU_PRINCIPAL_ITEMS[] = {"RELOJ", "CRONOMETRO", "SENSORES"};
-const int menu_length = sizeof(MENU_PRINCIPAL_ITEMS) / sizeof(MENU_PRINCIPAL_ITEMS[0]);
 int idx_capa0 = 0;
 int idx_capa1 = 0;
 int idx_capa2 = 0;
@@ -66,5 +64,5 @@ void loop()
   //   }
   //   selectOption();
   // }
-  mainMenu();
+  enrutador();
 }

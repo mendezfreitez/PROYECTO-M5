@@ -1,5 +1,3 @@
-#include <string>
-
 #ifndef CONST_H
 #define CONST_H
 
@@ -16,24 +14,16 @@ extern const int BUTON_PIN_A;
 extern int iniciar;
 extern int porc_bateria;
 extern int modulo;
-// using namespace std;
-
-struct itemMenu
-{
-    std::string nombre;
-    int modulo;
-};
-
 #endif
 
 #ifndef CONST_MODULO
 #define CONST_MODULO
 
-extern const int NIVEL_SENSOR = 1;
-extern const int RELOJ = 2;
-extern const int BLUETOOTH = 3;
-extern const int CRONOMETRO = 4;
-extern const int MENU_SENSORES = 5;
-extern const int MICROFONO = 6;
-extern const int MENU_INICIAL = 0;
+constexpr int NIVEL_SENSOR = 1;
+constexpr int RELOJ = 2;
+constexpr int BLUETOOTH = 3;
+constexpr int CRONOMETRO = 4;
+constexpr int MENU_SENSORES = 5;
+constexpr int MICROFONO = 6;
+constexpr int MENU_INICIAL = 0;
 #endif

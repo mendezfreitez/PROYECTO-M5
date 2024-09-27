@@ -62,14 +62,14 @@ void irAtras()
   }
 }
 
-bool mirarBtnIrAtras()
+bool mirarBtnIrAtras(int mod = MENU_INICIAL)
 {
   if (digitalRead(BUTON_PIN_C) == 0)
   {
     while (digitalRead(BUTON_PIN_C) == 0)
     {
     }
-    irAtras();
+    modulo = mod;
     return true;
   }
   return false;
