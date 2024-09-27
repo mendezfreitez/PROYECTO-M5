@@ -10,8 +10,7 @@ itemMenu menu[] = {
     {"RELOJ", RELOJ},
     {"BLUETOOTH", BLUETOOTH},
     {"CRONOMETRO", CRONOMETRO},
-    {"SENSORES", MENU_SENSORES}
-};
+    {"SENSORES", MENU_SENSORES}};
 
 void mainMenu()
 {
@@ -24,12 +23,7 @@ void mainMenu()
         }
         if (M5.BtnA.wasPressed())
         {
-            // if (capa < 2)
-            // {
-            //     capa++;
-            // }
-            // selectOption();
-            modulo
+            modulo = menu[idx].modulo;
         }
     }
 }

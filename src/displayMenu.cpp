@@ -15,7 +15,7 @@ void displayMenu(itemMenu arrItems[], int index_actual, int length) {
       M5.Lcd.setTextColor(WHITE, BLACK);
     }
     M5.Lcd.setCursor(1, cursor_Y);
-    M5.Lcd.print(arrItems[i].nombre);
+    M5.Lcd.print(arrItems[i].nombre.c_str());
   }
   bateria();
 }

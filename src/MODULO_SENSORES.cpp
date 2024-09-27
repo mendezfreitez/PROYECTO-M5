@@ -3,7 +3,10 @@
 #include <math.h>
 #include "submenu.h"
 
-const char *MENU_SENSORES_ITEMS[] = {"SENSOR DE NIVEL MPU6886", "MICROFONO SPM1423", "BLUETOOTH", "SENSOR 4"};
+itemMenu MENU_SENSORES_ITEMS[] = {
+    {"SENSOR DE NIVEL MPU6886", NIVEL_SENSOR},
+    {"MICROFONO SPM1423", MICROFONO},
+    {"SENSOR 4", 0}};
 
 void microfono()
 {
@@ -62,12 +65,12 @@ void MODULO_SENSORES()
 
 bool btnAtras()
 {
-   if (digitalRead(BUTON_PIN_C) == 0)
-   {
-      while (digitalRead(BUTON_PIN_C) == 0)
-      {
-      }
-      return true;
-   }
-   return false;
+  if (digitalRead(BUTON_PIN_C) == 0)
+  {
+    while (digitalRead(BUTON_PIN_C) == 0)
+    {
+    }
+    return true;
+  }
+  return false;
 }

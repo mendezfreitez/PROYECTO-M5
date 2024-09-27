@@ -1,3 +1,5 @@
+#include "const.h"
+
 void displayMenu(itemMenu arrItems[], int index_actual, int length);
 void displaySubMenu(int indx);
 void funcionCronometro(void *parameter);
