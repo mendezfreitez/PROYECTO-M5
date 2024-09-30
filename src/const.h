@@ -25,5 +25,6 @@ constexpr int BLUETOOTH = 3;
 constexpr int CRONOMETRO = 4;
 constexpr int MENU_SENSORES = 5;
 constexpr int MICROFONO = 6;
+constexpr int BAROMETRO = 7;
 constexpr int MENU_INICIAL = 0;
 #endif

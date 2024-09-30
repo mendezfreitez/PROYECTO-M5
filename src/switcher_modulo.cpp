@@ -31,6 +31,9 @@ void enrutador()
     case (MICROFONO):
         MODULO_MICROFONO();
         break;
+    case (BAROMETRO):
+        MODULO_BAROMETRO();
+        break;
     default:
         
         break;

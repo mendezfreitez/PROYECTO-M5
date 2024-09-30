@@ -6,6 +6,7 @@
 itemMenu MENU_SENSORES_ITEMS[] = {
     {"SENSOR DE NIVEL MPU6886", NIVEL_SENSOR},
     {"MICROFONO SPM1423", MICROFONO},
+    {"BAROMETRO BMP180", BAROMETRO},
     {"SENSOR 4", 0}};
 
 void microfono()

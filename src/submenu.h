@@ -9,6 +9,7 @@ void detener();
 void MODULO_CRONOMETRO();
 void MODULO_MICROFONO();
 void MODULO_SENSORES();
+void MODULO_BAROMETRO();
 void MODULO_RELOJ();
 void MODULO_SENSOR_NIVEL();
 void bateria();
