@@ -12,6 +12,7 @@ void MODULO_SENSORES();
 void MODULO_BAROMETRO();
 void MODULO_RELOJ();
 void MODULO_SENSOR_NIVEL();
+void MODULO_I2C_SCANNER();
 void bateria();
 void wifiConn(const char* uuid, const char* pass);
 void alertaBorde(int color);

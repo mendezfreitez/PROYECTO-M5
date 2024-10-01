@@ -34,6 +34,9 @@ void enrutador()
     case (BAROMETRO):
         MODULO_BAROMETRO();
         break;
+    case (I2C_SCAN):
+        MODULO_I2C_SCANNER();
+        break;
     default:
         
         break;
