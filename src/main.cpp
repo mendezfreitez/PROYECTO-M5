@@ -30,7 +30,6 @@ void setup()
   M5.Lcd.setRotation(1);
   M5.Lcd.fillScreen(BLACK);
   M5.Lcd.setBrightness(30);
-  // displayMenu(MENU_PRINCIPAL_ITEMS, idx_capa0, menu_length);
   pinMode(BUTON_PIN_C, INPUT_PULLDOWN);
   pinMode(BUTON_PIN_A, INPUT_PULLUP);
 }
@@ -41,28 +40,10 @@ void selectOption()
   M5.Lcd.setTextColor(WHITE, BLACK);
   M5.Lcd.setCursor(1, 1);
   displaySubMenu(idx_capa0);
-
-  // displayMenu(MENU_PRINCIPAL_ITEMS, idx_capa0, menu_length);
 }
 
 void loop()
 {
   M5.update();
-  // if (M5.BtnB.wasPressed())
-  // {
-  //   // if (capa == 0)
-  //   // {
-  //   idx_capa0 = (idx_capa0 + 1) % menu_length;
-  //   displayMenu(MENU_PRINCIPAL_ITEMS, idx_capa0, menu_length);
-  //   // }
-  // }
-  // if (M5.BtnA.wasPressed())
-  // {
-  //   if (capa < 2)
-  //   {
-  //     capa++;
-  //   }
-  //   selectOption();
-  // }
   enrutador();
 }

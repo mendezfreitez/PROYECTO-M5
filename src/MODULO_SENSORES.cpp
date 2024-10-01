@@ -7,7 +7,7 @@ itemMenu MENU_SENSORES_ITEMS[] = {
     {"SENSOR DE NIVEL MPU6886", NIVEL_SENSOR},
     {"MICROFONO SPM1423", MICROFONO},
     {"BAROMETRO BMP180", BAROMETRO},
-    {"-- I2C ESCANER --", I2C_SCAN}};
+    {"-- I2C SCANNER --", I2C_SCAN}};
 
 void microfono()
 {

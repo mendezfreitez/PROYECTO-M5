@@ -7,6 +7,7 @@ byte err, add;
 
 void MODULO_I2C_SCANNER()
 {
+    int dispositivos = 0;
     Wire.begin(25, 26);
     Serial.begin(9600);
     limpiarPantalla(10, 10);
@@ -17,12 +18,13 @@ void MODULO_I2C_SCANNER()
 
         if (err == 0)
         {
-            M5.Lcd.print("Dispositivo encontrado en: 0x");
+            M5.Lcd.print("Dispositivo en -> 0x");
             if (add < 16)
             {
                 M5.Lcd.print("0");
             }
             M5.Lcd.print(add, HEX);
+            dispositivos++;
         }
         else if (err == 4)
         {
@@ -34,8 +36,13 @@ void MODULO_I2C_SCANNER()
             M5.Lcd.println(add, HEX);
         }
     }
-    delay(5000);
-    while (!mirarBtnIrAtras(MENU_INICIAL))
+    if (dispositivos == 0)
+    {
+        limpiarPantalla(28, 60);
+        M5.Lcd.print("No se encontraron dispositivos");
+    }
+
+    while (!mirarBtnIrAtras(MENU_SENSORES))
     {
     }
     M5.Lcd.clearDisplay();
