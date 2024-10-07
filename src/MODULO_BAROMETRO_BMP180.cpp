@@ -18,11 +18,12 @@ void inicializarBMP180()
     Serial.begin(9600);
     limpiarPantalla(10, 10);
     Wire.begin(SDA_PIN, SCL_PIN);
-    delay(1000);
+    delay(500);
     if (!bmp.begin())
     {
-        limpiarPantalla(0, 60);
-        M5.Lcd.print("No se encontro dispositivo");
+        limpiarPantalla(42, 60);
+        M5.Lcd.setTextSize(1.1);
+        M5.Lcd.print("Dispositivo no encontrado");
         modulo = MENU_SENSORES;
         delay(4000);
     }
@@ -49,7 +50,7 @@ void MODULO_BAROMETRO()
 
         if (status != 0)
         {
-            delay(5);
+            delay(10);
 
             status = bmp.getTemperature(temp);
             if (status != 0)
@@ -57,29 +58,6 @@ void MODULO_BAROMETRO()
                 printTemperatura();
             }
         }
-        // Wire.beginTransmission(BMP180_DIR);
-        // Wire.write(0xF6); // 0x2E para leer temperatura
-        // Wire.endTransmission();
-        // delay(7);
-
-        // Wire.requestFrom(BMP180_DIR, 2);
-        // if (Wire.available() == 2)
-        // {
-        // int data = Wire.read();
-        // int data2 = Wire.read();
-
-        // limpiarPantalla(0, 10);
-        // M5.Lcd.print("Temp1 = ");
-        // M5.Lcd.println(data);
-        // M5.Lcd.print("Temp2 = ");
-        // M5.Lcd.println(data);
-        // }
-        // else
-        // {
-        // Serial.println("No se recibieron suficientes datos.");
-        // }
-
-        // delay(3000); // Espera un segundo antes de la próxima lectura
         mirarBtnIrAtras(MENU_SENSORES);
     }
     M5.Lcd.setTextSize(1.1);
