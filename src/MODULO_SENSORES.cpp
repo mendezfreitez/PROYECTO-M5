@@ -7,6 +7,7 @@ itemMenu MENU_SENSORES_ITEMS[] = {
     {"SENSOR DE NIVEL MPU6886", NIVEL_SENSOR},
     {"MICROFONO SPM1423", MICROFONO},
     {"BAROMETRO BMP180", BAROMETRO},
+    {"TRANSCEPTOR CC1101", TRANSCEPTOR},
     {"-- I2C SCANNER --", I2C_SCAN}};
 
 void microfono()
@@ -27,7 +28,7 @@ void microfono()
 void MODULO_SENSORES()
 {
   M5.Lcd.clearDisplay();
-  displayMenu(MENU_SENSORES_ITEMS, idx_capa1, 4);
+  displayMenu(MENU_SENSORES_ITEMS, idx_capa1, 5);
   while (modulo == MENU_SENSORES)
   {
     M5.update();
@@ -38,7 +39,7 @@ void MODULO_SENSORES()
     if (M5.BtnB.wasPressed())
     {
       idx_capa1 = (idx_capa1 + 1) % 4;
-      displayMenu(MENU_SENSORES_ITEMS, idx_capa1, 4);
+      displayMenu(MENU_SENSORES_ITEMS, idx_capa1, 5);
     }
     mirarBtnIrAtras(MENU_INICIAL);
   }
