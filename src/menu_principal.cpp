@@ -13,7 +13,8 @@ itemMenu menu[] = {
     {"SENSORES", MENU_SENSORES}};
 
 void mainMenu()
-{
+{ 
+    M5.Lcd.clearDisplay();
     displayMenu(menu, idx, 4);
     while (modulo == MENU_INICIAL)
     {
