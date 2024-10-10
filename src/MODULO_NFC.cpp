@@ -6,8 +6,10 @@
 
 void setup_nfc()
 {
+  Wire.begin(25, 26);
   Adafruit_PN532 nfc(25, 26);
   nfc.begin();
+  Serial.begin(9600);
   int version = nfc.getFirmwareVersion();
   limpiarPantalla(42, 60);
 
@@ -18,8 +20,10 @@ void setup_nfc()
     modulo = MENU_SENSORES;
     delay(4000);
   }
-  else{
+  else
+  {
     M5.Lcd.print(version);
+    Serial.print(version);
   }
 }
 
