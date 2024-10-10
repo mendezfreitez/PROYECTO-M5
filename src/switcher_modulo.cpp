@@ -37,8 +37,8 @@ void enrutador()
     case (I2C_SCAN):
         MODULO_I2C_SCANNER();
         break;
-    case (TRANSCEPTOR):
-        MODULO_TRANSCEPTOR();
+    case (NFC):
+        MODULO_NFC();
         break;
     default:
         MODULO_SENSORES();

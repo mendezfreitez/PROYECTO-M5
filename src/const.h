@@ -27,6 +27,6 @@ constexpr int MENU_SENSORES = 5;
 constexpr int MICROFONO = 6;
 constexpr int BAROMETRO = 7;
 constexpr int I2C_SCAN = 8;
-constexpr int TRANSCEPTOR = 9;
+constexpr int NFC = 9;
 constexpr int MENU_INICIAL = 0;
 #endif

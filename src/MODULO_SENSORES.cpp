@@ -4,10 +4,10 @@
 #include "const.h"
 
 itemMenu MENU_SENSORES_ITEMS[] = {
+    {"NFC", NFC},
     {"SENSOR DE NIVEL MPU6886", NIVEL_SENSOR},
     {"MICROFONO SPM1423", MICROFONO},
     {"BAROMETRO BMP180", BAROMETRO},
-    {"TRANSCEPTOR CC1101", TRANSCEPTOR},
     {"-- I2C SCANNER --", I2C_SCAN}};
 
 void microfono()
@@ -38,7 +38,7 @@ void MODULO_SENSORES()
     }
     if (M5.BtnB.wasPressed())
     {
-      idx_capa1 = (idx_capa1 + 1) % 4;
+      idx_capa1 = (idx_capa1 + 1) % 5;
       displayMenu(MENU_SENSORES_ITEMS, idx_capa1, 5);
     }
     mirarBtnIrAtras(MENU_INICIAL);
