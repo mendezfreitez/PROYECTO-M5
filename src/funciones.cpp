@@ -33,8 +33,18 @@ void limpiarPantalla(int x, int y)
   M5.Lcd.setCursor(x, y);
 }
 
-void buzzer(int freq, int ms){
+void buzzer(int freq, int ms)
+{
   M5.Speaker.tone(freq, ms);
+}
+void destello(int color, int ms)
+{
+  // M5.Lcd.clear(color);
+  // delay(ms);
+  // M5.Lcd.clear(BLACK);
+  M5.Power.setLed(50);
+  delay(ms);
+  M5.Power.setLed(0);
 }
 
 void alertaBorde(int color)
