@@ -33,6 +33,10 @@ void limpiarPantalla(int x, int y)
   M5.Lcd.setCursor(x, y);
 }
 
+void buzzer(int freq, int ms){
+  M5.Speaker.tone(freq, ms);
+}
+
 void alertaBorde(int color)
 {
   for (int i = 0; i <= 6; i++)

@@ -15,6 +15,7 @@ void MODULO_SENSOR_NIVEL();
 void MODULO_I2C_SCANNER();
 void MODULO_NFC();
 void bateria();
+void buzzer(int freq, int ms);
 void wifiConn(const char* uuid, const char* pass);
 void alertaBorde(int color);
 void MODULO_BLUETOOTH();

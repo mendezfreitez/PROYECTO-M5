@@ -8,7 +8,7 @@ byte err, add;
 void MODULO_I2C_SCANNER()
 {
     int dispositivos = 0;
-    Wire.begin(25, 26);
+    Wire.begin(26, 25);
     Serial.begin(9600);
     limpiarPantalla(10, 10);
     for (add = 1; add < 127; add++)
