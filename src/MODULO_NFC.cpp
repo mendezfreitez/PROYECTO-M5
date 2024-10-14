@@ -97,8 +97,8 @@ void leerPaginas(int nroBytes)
 
 void lecturaTarjeta()
 {
-  success = nfc.readPassiveTargetID(PN532_MIFARE_ISO14443A, &idTarjeta[0], &idTarjetaLong);
-
+  success = nfc.readPassiveTargetID(PN532_MIFARE_ISO14443A, &idTarjeta[0], &idTarjetaLong, 100);
+  
   if (success)
   {
     destello(GREEN, 200);
@@ -116,11 +116,6 @@ void lecturaTarjeta()
     M5.Lcd.setTextSize(1.1);
     leerPaginas(idTarjetaLong == 4 ? 16 : 32);
     delay(1000);
-  }
-  else
-  {
-    Serial.println("Error al leer tarjeta");
-    M5.Lcd.print("Error al leer tarjeta");
   }
 }
 
