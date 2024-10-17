@@ -14,6 +14,7 @@ void MODULO_RELOJ();
 void MODULO_SENSOR_NIVEL();
 void MODULO_I2C_SCANNER();
 void MODULO_NFC();
+void MODULO_RADIOFRECUENCIA();
 void bateria();
 void buzzer(int freq, int ms);
 void destello(int color, int ms);

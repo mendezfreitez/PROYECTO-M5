@@ -40,6 +40,9 @@ void enrutador()
     case (NFC):
         MODULO_NFC();
         break;
+    case (RADIOFRECUENCIA):
+        MODULO_RADIOFRECUENCIA();
+        break;
     default:
         MODULO_SENSORES();
         break;
