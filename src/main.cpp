@@ -25,7 +25,6 @@ void setup()
   M5.Lcd.setBrightness(30);
   pinMode(BUTON_PIN_C, INPUT_PULLDOWN);
   pinMode(BUTON_PIN_A, INPUT_PULLUP);
-
   // fecha_str.date = 1;
   // fecha_str.month = 1;
   // fecha_str.year = 2000;
